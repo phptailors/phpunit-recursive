@@ -32,31 +32,27 @@ use Tailors\PHPUnit\RecursiveVisitor\RecursiveVisitorUtils;
 final class RecursiveMapperVisitor implements RecursiveMapperVisitorInterface
 {
     /**
-     * @var ?\Closure
-     *
      * @psalm-var ?ArrayMapper
      */
-    private $arrayMapper;
+    private ?\Closure $arrayMapper;
 
     /**
-     * @var ?\Closure
-     *
      * @psalm-var ?ValueMapper
      */
-    private $valueMapper;
+    private ?\Closure $valueMapper;
 
     /**
      * @var ?ArrayLike
      */
     private $result;
 
-    /**
-     * @var array|\ArrayAccess
-     */
-    private $current;
+    private array|\ArrayAccess $current;
 
     public function __construct()
     {
+        $this->arrayMapper = null;
+        $this->valueMapper = null;
+        $this->result = null;
         $this->current = [];
     }
 

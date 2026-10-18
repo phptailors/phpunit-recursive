@@ -33,24 +33,16 @@ use Tailors\PHPUnit\Result\ResultInterface;
  */
 final class RecursiveResultUnwrapperVisitor implements RecursiveResultUnwrapperVisitorInterface, StaticTagInterface
 {
-    /**
-     * @var ?bool
-     */
-    private $actual;
+    private ?bool $actual;
 
-    /**
-     * @var null|array|ResultInterface
-     */
-    private $result;
+    private array|ResultInterface|null $result;
 
-    /**
-     * @var array
-     */
-    private $current;
+    private array $current;
 
     public function __construct(private readonly bool $tagging = true)
     {
         $this->actual = null;
+        $this->result = null;
         $this->current = [];
     }
 
